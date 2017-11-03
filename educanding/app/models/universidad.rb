@@ -1,4 +1,4 @@
 class Universidad < ApplicationRecord
-  has_many :Usuario,
-  has_many :Preguntum
+  has_many :Usuarios
+  has_many :Preguntums
 end

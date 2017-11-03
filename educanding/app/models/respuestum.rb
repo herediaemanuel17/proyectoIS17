@@ -1,6 +1,6 @@
 class Respuestum < ApplicationRecord
-  belong_to :Preguntum,
-  belong_to :Usuario,
+  belongs_to :Preguntum,
+  belongs_to :Usuario,
   has_many :Comentarior,
   has_many :Votor
 end

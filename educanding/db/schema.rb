@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20171101185951) do
 
   create_table "pregunta", force: :cascade do |t|
     t.string "descripcion"
+    t.integer "Usuario_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,3 +1,3 @@
 class Comentariop < ApplicationRecord
-  belong_to :Pregunta,
+  belongs_to :Pregunta,
 end

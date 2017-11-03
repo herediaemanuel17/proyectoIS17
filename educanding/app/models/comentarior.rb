@@ -1,3 +1,3 @@
 class Comentarior < ApplicationRecord
-  belong_to :Respuestum,
+  belongs_to :Respuestum,
 end
