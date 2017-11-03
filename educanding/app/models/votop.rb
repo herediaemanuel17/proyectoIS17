@@ -1,0 +1,2 @@
+class Votop < ApplicationRecord
+end

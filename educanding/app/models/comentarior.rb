@@ -1,0 +1,2 @@
+class Comentarior < ApplicationRecord
+end

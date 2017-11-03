@@ -1,0 +1,2 @@
+class Votor < ApplicationRecord
+end
