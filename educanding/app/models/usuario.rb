@@ -1,5 +1,5 @@
 class Usuario < ApplicationRecord
-  has_many :Pregunta,
+  has_many :Preguntum,
   belong_to :Universidad,
-  has_many :Respuestas
+  has_many :Respuestum
 end
