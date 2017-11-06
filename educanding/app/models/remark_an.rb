@@ -1,0 +1,2 @@
+class RemarkAn < ApplicationRecord
+end

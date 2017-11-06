@@ -1,0 +1,2 @@
+class Univercity < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class RemarkQ < ApplicationRecord
+end

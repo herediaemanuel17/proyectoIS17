@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descripcion: MyString
+  titulo: MyString
+  User_id: 1
+  Univercity_id: 1
+  Label_id: 1
+  Resc_id: 1
+
+two:
+  descripcion: MyString
+  titulo: MyString
+  User_id: 1
+  Univercity_id: 1
+  Label_id: 1
+  Resc_id: 1

@@ -10,65 +10,106 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171101185951) do
+ActiveRecord::Schema.define(version: 20171106173611) do
 
-  create_table "comentariops", force: :cascade do |t|
+  create_table "answers", force: :cascade do |t|
     t.string "descripcion"
+    t.integer "User_id"
+    t.integer "Question_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "comentariors", force: :cascade do |t|
-    t.string "descripcion"
+  create_table "complaint_ans", force: :cascade do |t|
+    t.string "motivo"
+    t.integer "Answer_id"
+    t.integer "User_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "etiqueta", force: :cascade do |t|
+  create_table "complaint_qs", force: :cascade do |t|
+    t.string "motivo"
+    t.integer "Question_id"
+    t.integer "User_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "labels", force: :cascade do |t|
     t.string "nombre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "pregunta", force: :cascade do |t|
+  create_table "permits", force: :cascade do |t|
+    t.string "acciones"
+    t.integer "puntos"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "questions", force: :cascade do |t|
     t.string "descripcion"
-    t.integer "Usuario_id"
+    t.string "titulo"
+    t.integer "User_id"
+    t.integer "Univercity_id"
+    t.integer "Label_id"
+    t.integer "Resc_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "respuesta", force: :cascade do |t|
+  create_table "remark_ans", force: :cascade do |t|
     t.string "descripcion"
+    t.integer "Answer_id"
+    t.integer "User_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "universidads", force: :cascade do |t|
-    t.string "nombre_de_facultad"
+  create_table "remark_qs", force: :cascade do |t|
+    t.string "descripcion"
+    t.integer "Question_id"
+    t.integer "User_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "usuarios", force: :cascade do |t|
+  create_table "univercities", force: :cascade do |t|
+    t.string "nombre"
+    t.string "direccion"
+    t.string "pais"
+    t.integer "User_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
     t.string "nombre"
     t.string "apellido"
-    t.integer "reputacion"
     t.string "foto_de_perfil"
-    t.string "tipo"
+    t.integer "puntos"
     t.string "email"
-    t.string "contraseña"
+    t.string "password"
+    t.integer "Univercity_id"
+    t.integer "Permit_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "votops", force: :cascade do |t|
-    t.string "tipodevoto"
+  create_table "vote_ans", force: :cascade do |t|
+    t.boolean "positivo"
+    t.integer "User_id"
+    t.integer "Answer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "votors", force: :cascade do |t|
-    t.string "tipodevoto"
+  create_table "vote_qs", force: :cascade do |t|
+    t.boolean "positivo"
+    t.integer "User_id"
+    t.integer "Question_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

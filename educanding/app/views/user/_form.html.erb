@@ -1,0 +1,26 @@
+<%= form_for :usuario do |u| %>
+<div class='field'>
+  <%=u.label :nombre%> </br>
+  <%=u.text_field :nombre%> </br>
+</div>
+<div class='field'>
+  <%=u.label :apellido%> </br>
+  <%=u.text_field :apellido%> </br>
+</div>
+<div class='field'>
+  <%=u.label :email%> </br>
+  <%=u.text_field :email%> </br>
+</div>
+<div class='field'>
+  <%=u.label :password%> </br>
+  <%=u.text_field :password%> </br>
+</div>
+<div class='field'>
+  <h5> confirmar contraseña</5> </br>
+  <%=u.label :password%> </br>
+  <%=u.text_field :password%> </br>
+</div>
+
+<%= u.submit 'registrar' %>
+<% end %>
+
