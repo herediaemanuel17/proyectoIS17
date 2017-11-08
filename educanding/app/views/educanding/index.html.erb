@@ -5,8 +5,8 @@
 	<div class="col-xs-8">
 		<table class= table>
 		<tr> <th> preguntas </th> </tr>
-		<% Question.all.each do |pregunta| %>
-			<title> <%=  %>
+		<%= @question.each do |pregunta| %>
+			<title> <%pregunta.titulo%></title>
 			<tr>
 				<th><%=pregunta.User.nombre%></th>
 				<th><%=pregunta.descripcion%></th>
