@@ -10,4 +10,5 @@ class UserController < ApplicationController
     ##if :usuario.password != :password
     User.create(nombre: ":usuario.nombre", apellido: ":usuario.apellido", email: "usuario.email", password: ":usuario.password")
   end
+
 end

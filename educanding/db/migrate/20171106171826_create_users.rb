@@ -5,7 +5,6 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :apellido
       t.string :foto_de_perfil
       t.integer :puntos
-      t.string :email
       t.string :password
       t.integer :Univercity_id
       t.integer :Permit_id
@@ -14,3 +13,4 @@ class CreateUsers < ActiveRecord::Migration[5.1]
     end
   end
 end
+#
