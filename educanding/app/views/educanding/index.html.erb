@@ -4,9 +4,15 @@
 	</div>
 	<div class="col-xs-8">
 		<table class= table>
+<<<<<<< HEAD
 		<tr> <th> Ultimas Preguntas </th> </tr>
 		<% Question.all.each do |pregunta| %>
 			<title> <%=  %>
+=======
+		<tr> <th> preguntas </th> </tr>
+		<%= @question.each do |pregunta| %>
+			<title> <%pregunta.titulo%></title>
+>>>>>>> 4494db8967e55ae6affd4b1e8be2cb612f095cf2
 			<tr>
 				<th><%=pregunta.User.nombre%></th>
 				<th><%=pregunta.descripcion%></th>
