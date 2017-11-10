@@ -21,10 +21,10 @@
 			</tr>
 		<% end %>
 </table>
-<%= form_for :responder , url:responder_crear_path do |r| %>
+<%= form_for :Responder , url:responder_crear_path do |r| %>
   <div class="row">
     <div class="col-md-6">
-      <%= r.label :Titulo %>
+        <%= r.label :Pregunta %>
         <%= hidden_field_tag :pregun_id, @pre.id %>
         <%= r.text_area :descripcion, class: 'form-control', label: 'Respuesta', placeholder: 'ingrese la respuesta' %>
     </div>
