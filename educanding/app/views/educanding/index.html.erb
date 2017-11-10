@@ -1,21 +1,40 @@
 
+
 <div class="row">
-</div>
-<div class="row">
+<% if user_signed_in?  %>
 	<div class="col-xs-4">
+
 			<h3> Quieres realizar una nueva pregunta </h3>
-				<%= link_to "Preguntar", new_preguntar_path, class: 'btn btn-info btn-sm'  %>
+				<%= link_to "Preguntar", preguntar_nuevo_path, class: 'btn btn-info btn-sm' %>
  	</div>
+ <%end%>
+
+
 	<div class="col-xs-8">
 		<table class= table>
-		<tr> <th> Ultimas Preguntas </th> </tr>
-		<% @question.each do |pregunta| %>
-			<title> <%pregunta.titulo%></title>
+		 <title> Ultimas Preguntas </title>
+		<tr>
+			<th>Nombre de Usuario</th>
+			<th>Descripcion</th>
+			<th>Fecha de Creacion</th>
+		</tr>
+		<% @question.each do |p| %>
+
 			<tr>
-				<th><%=pregunta.User.nombre%></th>
-				<th><%=pregunta.descripcion%></th>
-				<th><%=pregunta.created_at%></th>
-			</tr>
+				<td><%=p.User.name%></td>
+				<td><%=p.descripcion%></td>
+				<td><%=p.created_at%></td>
+				<td>
+				<%= form_tag("/preguntar/votar", method: "get") do %>
+						<%= hidden_field_tag :pregun_id,p.id  %>
+						<%= submit_tag 'Votar' %>
+				 <% end %>
+			 </td>
 		<% end %>
+
+				</tr>
 	</div>
 </div>
+<th>
+
+</th>
