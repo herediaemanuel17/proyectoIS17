@@ -11,8 +11,9 @@ def crear
  		redirect_to root_path
  	end
 end
-def votar
-    render plain: params[:pregun_id].inspect
+def lapregunta
+  @pre=Question.find(params[:id])
+    @resp=@pre.Answers
 end
 
 end

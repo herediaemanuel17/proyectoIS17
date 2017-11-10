@@ -1,0 +1,36 @@
+<div class="container">
+<title> Preguntar </title>
+<h3> Ususario: <%= @pre.User.name %> <%=  @pre.User.last_name %> </h3>
+<h3> Titulo: <%= @pre.titulo %> </h3>
+<table class="table">
+  <tr>
+    <th><p> Descripcion: <%= @pre.descripcion %></p></th>
+    <% if VoteQ.where(User_id: current_user.id, Question_id:@pre.id).empty? %>
+      <th><p> Votar: <%= link_to "positivo", voteqs_positivo_path(:id=> @pre.id), class: 'btn btn-info btn-sm' %> |
+        <%= link_to "negativo", voteqs_negativo_path(:id=> @pre.id), class: 'btn btn-info btn-sm' %> </p></th>
+    <% end %>
+  </tr>
+</table>
+<table class="table">
+    <tr>
+      <th> Respuestas </th>
+    </tr>
+    <% @resp.each do |a| %>
+			<tr>
+				<td><%=a.descripcion%></td>
+			</tr>
+		<% end %>
+</table>
+<%= form_for :responder , url:responder_crear_path do |r| %>
+  <div class="row">
+    <div class="col-md-6">
+      <%= r.label :Titulo %>
+        <%= hidden_field_tag :pregun_id, @pre.id %>
+        <%= r.text_area :descripcion, class: 'form-control', label: 'Respuesta', placeholder: 'ingrese la respuesta' %>
+    </div>
+  </div>
+  <div>
+  	<%= r.submit "Responder", class: 'btn btn-primary' %>
+  </div>
+</div>
+<% end %>

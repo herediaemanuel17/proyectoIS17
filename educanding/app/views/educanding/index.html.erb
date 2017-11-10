@@ -22,17 +22,11 @@
 
 			<tr>
 				<td><%=p.User.name%></td>
-				<td><%=p.titulo%></td>
+				<td><%= link_to p.titulo, preguntar_lapregunta_path(:id=> p.id)%></td>
 				<td><%=p.created_at%></td>
-				<td>
-				<%= form_tag("/preguntar/votar", method: "get") do %>
-						<%= hidden_field_tag :pregun_id,p.id  %>
-						<%= submit_tag 'Votar' %>
-				 <% end %>
-			 </td>
+			</tr>
 		<% end %>
 
-				</tr>
 	</div>
 </div>
 <th>
