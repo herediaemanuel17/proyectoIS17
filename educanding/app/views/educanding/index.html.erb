@@ -15,14 +15,14 @@
 		 <title> Ultimas Preguntas </title>
 		<tr>
 			<th>Nombre de Usuario</th>
-			<th>Descripcion</th>
+			<th>Titulo</th>
 			<th>Fecha de Creacion</th>
 		</tr>
 		<% @question.each do |p| %>
 
 			<tr>
 				<td><%=p.User.name%></td>
-				<td><%=p.descripcion%></td>
+				<td><%=p.titulo%></td>
 				<td><%=p.created_at%></td>
 				<td>
 				<%= form_tag("/preguntar/votar", method: "get") do %>
