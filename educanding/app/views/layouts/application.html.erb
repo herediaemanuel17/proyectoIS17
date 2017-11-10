@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
+
     <title>Educanding</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <p class="navbar-text pull-right">
+    <div class="container-fluid">
+
+    <div class="imagen_logo">
+      <%= image_tag "educanding_azul.png", :title => "Educanding"%>
+    </div>
     <% if user_signed_in? %>
       Logged in as <strong><%= current_user.email %></strong>.
       <%= link_to "Cerrar Sesion", destroy_user_session_path, method: :delete, class: 'btn btn-info btn-sm' %>
@@ -15,6 +20,7 @@
       <%= link_to "Registrarce", new_user_registration_path, class: 'btn btn-info btn-sm'  %> |
       <%= link_to "Iniciar Sesion", new_user_session_path, class: 'btn btn-info btn-sm'  %>
     <% end %>
+  </div>
   </head>
 
   <body>
