@@ -1,4 +1,4 @@
-##primera parte del if es para los usuarios registrados!!
+<!--primera parte del if es para los usuarios registrados!!-->
 <% if user_signed_in? %>
   <title> Preguntar </title>
   <h3> Ususario: <%= @pre.User.name %> <%=  @pre.User.last_name %> </h3>
@@ -37,8 +37,12 @@
   				<td><%=a.descripcion%></td>
           <td><%= link_to "Comentarios", comentarior_index_path(:id=> a.id) %></td>
   			</tr>
+        <tr>
+  				<td><%=a.User.name%></td>
+  			</tr>
   		<% end %>
   </table>
+  <% if @pre.User.id!=current_user.id %>
   <%= form_for :Responder , url:responder_crear_path do |r| %>
     <div class="row">
       <div class="col-md-6">
@@ -48,11 +52,13 @@
     </div>
     <div>
     	<%= r.submit "Responder", class: 'btn btn-primary' %>
+      <%= link_to "volver ", root_path,class: 'btn btn-primary' %>
     </div>
+    <% end %>
     <% end %>
 <% else %>
 <title> Preguntar </title>
-<h3> Ususario: <%= @pre.User.name %> <%=  @pre.User.last_name %> </h3>
+<h3> Usuario: <%= @pre.User.name %> <%=  @pre.User.last_name %> </h3>
 <h3> Pregunta: <%= @pre.titulo %> </h3>
 <table class="table">
   <tr>
@@ -73,9 +79,21 @@
     </tr>
     <% @resp.each do |a| %>
       <tr>
+<<<<<<< HEAD
         <td><%=a.descripcion%></td>
         <th><%= link_to "Comentarios", comentarior_index_path(:id=> a.id) %></th>
+=======
+        <td>
+          <%=a.descripcion%>
+        <h4>  Respondido por:<%=a.User.name%></h4>
+        </td>
+
+>>>>>>> f8f1fc283b34ba7cabd160a671c906de42c3ded1
       </tr>
+
     <% end %>
 </table>
+<div>
+  <%= link_to "volver ", root_path,class: 'btn btn-primary' %>
+</div>
 <% end %>
