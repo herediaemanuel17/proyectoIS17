@@ -1,14 +1,35 @@
+
 <div class="container">
 <title> Preguntar </title>
 <h3> Ususario: <%= @pre.User.name %> <%=  @pre.User.last_name %> </h3>
-<h3> Titulo: <%= @pre.titulo %> </h3>
+<h3> Pregunta: <%= @pre.titulo %> </h3>
 <table class="table">
   <tr>
-    <th><p> Descripcion: <%= @pre.descripcion %></p></th>
-    <% if VoteQ.where(User_id: current_user.id, Question_id:@pre.id).empty? %>
-      <th><p> Votar: <%= link_to "positivo", voteqs_positivo_path(:id=> @pre.id), class: 'btn btn-info btn-sm' %> |
-        <%= link_to "negativo", voteqs_negativo_path(:id=> @pre.id), class: 'btn btn-info btn-sm' %> </p></th>
-    <% end %>
+    <div class='container'>
+    <div class='row'>
+    <div class="col">
+      <th><p> Descripcion:
+        <div class='container'>
+        <%= @pre.descripcion %>
+        </div>
+        </div>
+        </p></th>
+      <div class="col">
+      <% if VoteQ.where(User_id: current_user.id, Question_id:@pre.id).empty? %>
+        <button type="button" class="btn btn-">
+          <span class="glyphicon glyphicon-thumbs-up"></span>
+          <%= link_to " positivo", voteqs_positivo_path(:id=> @pre.id) %>
+        </button>
+
+        <button type="button" class="btn btn-succes">
+          <span class="glyphicon glyphicon-thumbs-down"></span>
+          <%= link_to " negativo ", voteqs_negativo_path(:id=> @pre.id)%>
+        </button>
+      <% end %>
+  </div>
+
+  </div>
+  </div>
   </tr>
 </table>
 <table class="table">
@@ -24,7 +45,7 @@
 <%= form_for :Responder , url:responder_crear_path do |r| %>
   <div class="row">
     <div class="col-md-6">
-        <%= r.label :Pregunta %>
+
         <%= hidden_field_tag :pregun_id, @pre.id %>
         <%= r.text_area :descripcion, class: 'form-control', label: 'Respuesta', placeholder: 'ingrese la respuesta' %>
     </div>
@@ -32,5 +53,5 @@
   <div>
   	<%= r.submit "Responder", class: 'btn btn-primary' %>
   </div>
+  <% end %>
 </div>
-<% end %>
