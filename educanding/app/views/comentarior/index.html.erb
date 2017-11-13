@@ -1,0 +1,49 @@
+<h1> comentarios </h1>
+<% if user_signed_in? %>
+  <h3> Descripcion : <%= @respuesta.descripcion %> </h3>
+  <table class="table">
+    <tr>
+      <th> Comentarios </th>
+      <th> Nombre </th>
+      <th> Apellido </th>
+      <th> Fecha </th>
+    </tr>
+    <% @comentariosr.each do |a| %>
+      <tr>
+        <td><%=a.descripcion%></td>
+        <td><%=a.User.name %></td>
+        <td><%=a.User.last_name %></td>
+        <td><%=a.created_at %></td>
+      </tr>
+    <% end %>
+  </table>
+  <%= form_for :Comer , url:comentarior_crear_path do |r| %>
+    <div class="row">
+      <div class="col-md-6">
+          <%= hidden_field_tag :id, @respuesta.id %>
+          <%= r.text_area :descripcion, class: 'form-control', label: 'Comentario', placeholder: 'ingrese un comentario' %>
+      </div>
+    </div>
+    <div>
+      <%= r.submit "Comentar", class: 'btn btn-primary' %>
+    </div>
+    <% end %>
+<% else %>
+  <h3> Descripcion : <%= @respuesta.descripcion %> </h3>
+  <table class="table">
+    <tr>
+      <th> Comentarios </th>
+      <th> Nombre </th>
+      <th> Apellido </th>
+      <th> Fecha </th>
+    </tr>
+    <% @comentariosr.each do |a| %>
+      <tr>
+        <td><%=a.descripcion%></td>
+        <td><%=a.User.name %></td>
+        <td><%=a.User.last_name %></td>
+        <td><%=a.created_at %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
