@@ -11,8 +11,8 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <div class="p-3 mb-2 bg-info text-white">
-      <div class="container-fluid">
-        
+      <div class="container">
+
           <div class="imagen_logo">
             <%= image_tag "educanding_azul.png", :title => "Educanding"%>
           </div>
@@ -27,6 +27,7 @@
   </div>
   </head>
   <body>
+    <div class="container">
     <span class="oi oi-thumb-down"></span>
     <span class="oi oi-thumb-down" title="thumb-down" aria-hidden="true"></span>
     <% if notice %>
@@ -36,5 +37,6 @@
       <p class="alert alert-danger"><%= alert %></p>
     <% end %>
     <%= yield %>
+  </div>
   </body>
 </html>

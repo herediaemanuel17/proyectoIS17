@@ -7,11 +7,10 @@
     <tr>
       <div class='row'>
       <div class="col">
-        <th><p> Descripcion:
-          <%= @pre.descripcion %>
-          </div>
-          </p></th>
-          <th><%= link_to "Comentarios", comentariop_index_path(:id=> @pre.id) %></th>
+        <th><p><%= @pre.descripcion %></p></th>
+      </div>
+
+        <th><%= link_to "Comentarios", comentariop_index_path(:id=> @pre.id) %></th>
         <div class="col">
         <% if VoteQ.where(User_id: current_user.id, Question_id:@pre.id).empty? %>
           <th><button type="button" class="btn btn-">
@@ -21,6 +20,14 @@
             <span class="glyphicon glyphicon-thumbs-down"></span>
             <%= link_to " negativo ", voteqs_negativo_path(:id=> @pre.id)%>
           </button></th>
+        <% else %>
+        <th><button type="button" class="btn btn-">
+          <span class="glyphicon glyphicon-thumbs-up"></span>
+          <%= link_to " positivo" %>
+        </button>|<button type="button" class="btn btn-succes">
+          <span class="glyphicon glyphicon-thumbs-down"></span>
+          <%= link_to " negativo ",root_path, :id => "mylink"%>
+        </button></th>
         <% end %>
     </div>
 
@@ -31,30 +38,27 @@
       <tr>
         <th> Respuestas </th>
         <th> Comentarios</th>
+        <th> respondio: <th>
       </tr>
       <% @resp.each do |a| %>
   			<tr>
   				<td><%=a.descripcion%></td>
           <td><%= link_to "Comentarios", comentarior_index_path(:id=> a.id) %></td>
-  			</tr>
-        <tr>
-  				<td><%=a.User.name%></td>
-  			</tr>
+          <td><%=a.User.name%></td>
+        </tr>
   		<% end %>
   </table>
-  <% if @pre.User.id!=current_user.id %>
   <%= form_for :Responder , url:responder_crear_path do |r| %>
     <div class="row">
       <div class="col-md-6">
           <%= hidden_field_tag :pregun_id, @pre.id %>
-          <%= r.text_area :descripcion, class: 'form-control', label: 'Respuesta', placeholder: 'ingrese la respuesta' %>
+          <%= r.text_area :descripcion, class: 'form-control', label: 'Respuesta', placeholder: 'ingrese la respuesta', required:true %>
       </div>
     </div>
     <div>
     	<%= r.submit "Responder", class: 'btn btn-primary' %>
       <%= link_to "volver ", root_path,class: 'btn btn-primary' %>
     </div>
-    <% end %>
     <% end %>
 <% else %>
 <title> Preguntar </title>
@@ -64,10 +68,8 @@
   <tr>
     <div class='row'>
     <div class="col">
-      <th><p> Descripcion:
-        <%= @pre.descripcion %>
+      <th><p><%= @pre.descripcion %></p></th>
         </div>
-        </p></th>
         <th><%= link_to "Comentarios", comentariop_index_path(:id=> @pre.id) %></th>
   </div>
   </tr>
@@ -76,19 +78,13 @@
     <tr>
       <th> Respuestas </th>
       <th> Comentarios</th>
+      <th> respondio: <th>
     </tr>
     <% @resp.each do |a| %>
       <tr>
-<<<<<<< HEAD
         <td><%=a.descripcion%></td>
-        <th><%= link_to "Comentarios", comentarior_index_path(:id=> a.id) %></th>
-=======
-        <td>
-          <%=a.descripcion%>
-        <h4>  Respondido por:<%=a.User.name%></h4>
-        </td>
-
->>>>>>> f8f1fc283b34ba7cabd160a671c906de42c3ded1
+        <td><%= link_to "Comentarios", comentarior_index_path(:id=> a.id) %></td>
+        <td><%=a.User.name%></td>
       </tr>
 
     <% end %>
@@ -97,3 +93,5 @@
   <%= link_to "volver ", root_path,class: 'btn btn-primary' %>
 </div>
 <% end %>
+$('#mylink').click(function(e){e.preventDefault();
+});

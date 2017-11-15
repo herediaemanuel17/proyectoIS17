@@ -22,7 +22,7 @@
     <div class="row">
       <div class="col-md-6">
           <%= hidden_field_tag :id, @pregunta.id %>
-          <%= r.text_area :descripcion, class: 'form-control', label: 'Comentario', placeholder: 'ingrese un comentario' %>
+          <%= r.text_area :descripcion, class: 'form-control', label: 'Comentario', placeholder: 'ingrese un comentario', required:true %>
       </div>
     </div>
     <div>

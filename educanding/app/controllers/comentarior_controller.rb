@@ -1,5 +1,4 @@
 class ComentariorController < ApplicationController
-
   def index
     r_id=params[:id]
     @comentariosr = RemarkAn.where(Answer_id:params[:id]).all

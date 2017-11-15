@@ -1,4 +1,5 @@
 class PreguntarController < ApplicationController
+
 def nuevo
      @pregunta = Question.new
 end
