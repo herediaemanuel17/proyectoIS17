@@ -8,7 +8,7 @@ class VoteqsController < ApplicationController
      redirect_to preguntar_lapregunta_path(:id=> preg_id)
    end
   end
-
+ 
   def negativo
     preg_id = params[:id]
     us_id = current_user.id
