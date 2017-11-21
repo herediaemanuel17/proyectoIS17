@@ -3,7 +3,7 @@
   <title> Preguntar </title>
   <h3> Ususario: <%= @pre.User.name %> <%=  @pre.User.last_name %> </h3>
   <h3> Pregunta: <%= @pre.titulo %> </h3>
- 
+
   <table class="table">
     <tr>
       <div class='row'>
@@ -40,8 +40,26 @@
       <% @resp.each do |a| %>
   			<tr>
   				<td><%=a.descripcion%></td>
+
           <td><%= link_to "Comentarios", comentarior_index_path(:id=> a.id) %></td>
           <td><%=a.User.name%></td>
+
+          <div class="col">
+            <th>
+              <button type="button" class="btn btn-">
+                <span class="glyphicon glyphicon-thumbs-up"></span>
+                <%= link_to_if VoteAn.where(User_id: current_user.id, Answer_id:@resp.id).empty? ," positivo "   ,voteas_positivo_path(:id=> @resp.id)  %>
+                <%= VoteAn.where(positivo: true).count%>
+              </button>
+              <button type="button" class="btn btn-succes">
+                <span class="glyphicon glyphicon-thumbs-down"></span>
+                <%= link_to_if VoteAn.where(User_id: current_user.id, Answer_id:@resp.id).empty? ,"negativos " ,voteas_negativo_path(:id=> @resp.id)  %>
+                <%= VoteAn.where(positivo: false).count%>
+              </button>
+            </th>
+
+      </div>
+
         </tr>
   		<% end %>
   </table>
