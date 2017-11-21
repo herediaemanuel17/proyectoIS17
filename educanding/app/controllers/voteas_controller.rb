@@ -5,7 +5,8 @@ class VoteasController < ApplicationController
     us_id = current_user.id
     voto = VoteAn.new(positivo: true, User_id: us_id, Answer_id: resp_id)
     if voto.save
-     redirect_to responder_larespuesta_path(:id=> resp_id)
+     redirect_to preguntar_lapregunta_path(:id=> preg_id)
+
    end
   end
 
@@ -14,7 +15,8 @@ class VoteasController < ApplicationController
     us_id = current_user.id
     voto = VoteAn.new(positivo: false, User_id: us_id, Answer_id: resp_id)
     if voto.save
-     redirect_to responder_larespuesta_path(:id=> resp_id)
+     redirect_to preguntar_lapregunta_path(:id=> preg_id)
+
    end
   end
 end

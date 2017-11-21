@@ -13,7 +13,5 @@ class ResponderController < ApplicationController
  	  end
   end
 
-  def larespuesta
-    @resp=Answer.find(params[:id])
-  end
+
 end
