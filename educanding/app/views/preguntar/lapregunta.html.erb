@@ -3,7 +3,7 @@
   <title> Preguntar </title>
   <h3> Ususario: <%= @pre.User.name %> <%=  @pre.User.last_name %> </h3>
   <h3> Pregunta: <%= @pre.titulo %> </h3>
- 
+
   <table class="table">
     <tr>
       <div class='row'>
@@ -16,13 +16,13 @@
           <th>
             <button type="button" class="btn btn-">
               <span class="glyphicon glyphicon-thumbs-up"></span>
-              <%= link_to_if VoteQ.where(User_id: current_user.id, Question_id:@pre.id).empty? ," positivo "   ,voteqs_positivo_path(:id=> @pre.id)  %>
-              <%= VoteQ.where(positivo: true).count%>
+              <%= link_to_if VoteQ.where(User_id: current_user.id,Question_id: @pre.id).empty? , " positivo "   ,voteqs_positivo_path(:id=> @pre.id)  %>
+              <%= VoteQ.where(positivo: true, Question_id: @pre.id).count%>
             </button>
             <button type="button" class="btn btn-succes">
               <span class="glyphicon glyphicon-thumbs-down"></span>
-              <%= link_to_if VoteQ.where(User_id: current_user.id, Question_id:@pre.id).empty? ,"negativos " ,voteqs_negativo_path(:id=> @pre.id)  %>
-              <%= VoteQ.where(positivo: false).count%>
+              <%= link_to_if VoteQ.where(User_id: current_user.id,Question_id: @pre.id).empty? ,"negativos " ,voteqs_negativo_path(:id=> @pre.id)  %>
+              <%= VoteQ.where(positivo: false, Question_id:@pre.id).count%>
             </button>
           </th>
 
