@@ -18,6 +18,10 @@ Rails.application.routes.draw do
   get 'comentarior/nuevo'=>'comentarior#nuevo'
   get 'comentarior/index'=>'comentarior#index'
   post 'comentarior/crear'=>'comentarior#crear'
+  get 'preguntar/eliminar'=>'preguntar#eliminar'
+  get 'responder/eliminar'=>'responder#eliminar'
+  get 'comentarior/eliminar'=>'comentarior#eliminar'
+  get 'comentariop/eliminar'=>'comentariop#eliminar'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

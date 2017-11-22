@@ -5,15 +5,14 @@
     <tr>
       <th> Comentarios </th>
       <th> Nombre </th>
-      <th> Apellido </th>
-      <th> Fecha </th>
     </tr>
     <% @comentariosr.each do |a| %>
       <tr>
         <td><%=a.descripcion%></td>
         <td><%=a.User.name %></td>
-        <td><%=a.User.last_name %></td>
-        <td><%=a.created_at %></td>
+        <td><% if a.User_id == current_user.id %>
+          <%= link_to "eliminar",comentarior_eliminar_path(:cid=>a.id, :id=> @respuesta.id) , class: 'btn btn-info btn-sm' %>
+        <% end %> </td>
       </tr>
     <% end %>
   </table>
@@ -35,14 +34,11 @@
       <th> Comentarios </th>
       <th> Nombre </th>
       <th> Apellido </th>
-      <th> Fecha </th>
     </tr>
     <% @comentariosr.each do |a| %>
       <tr>
         <td><%=a.descripcion%></td>
         <td><%=a.User.name %></td>
-        <td><%=a.User.last_name %></td>
-        <td><%=a.created_at %></td>
       </tr>
     <% end %>
   </table>

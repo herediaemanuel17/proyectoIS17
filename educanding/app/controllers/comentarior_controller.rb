@@ -18,4 +18,10 @@ class ComentariorController < ApplicationController
        redirect_to comentarior_index_path(:id=> r_id)
  	  end
   end
+
+  def eliminar
+    rid=params[:id]
+    RemarkAn.find(params[:cid]).destroy
+    redirect_to comentarior_index_path(:id=> rid)
+  end
 end

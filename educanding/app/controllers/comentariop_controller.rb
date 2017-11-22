@@ -18,4 +18,10 @@ class ComentariopController < ApplicationController
        redirect_to comentariop_index_path(:id=> p_id)
  	  end
   end
+
+  def eliminar
+    p_id=params[:id]
+    RemarkQ.find(params[:cid]).destroy
+    redirect_to comentariop_index_path(:id=> p_id)
+  end
 end

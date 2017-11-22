@@ -17,4 +17,9 @@ def lapregunta
     @resp=@pre.Answers
 end
 
+def eliminar
+  Question.find(params[:id]).destroy
+  redirect_to root_path
+end
+
 end
