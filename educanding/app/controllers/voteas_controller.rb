@@ -1,18 +1,19 @@
-class VoteqsController < ApplicationController
+class VoteasController < ApplicationController
 
   def positivo
-    preg_id = params[:id]
+    resp_id = params[:id]
     us_id = current_user.id
-    voto = VoteQ.new(positivo: true, User_id: us_id, Question_id: preg_id)
+    voto = VoteAn.new(positivo: true, User_id: us_id, Answer_id: resp_id)
     if voto.save
      redirect_to preguntar_lapregunta_path(:id=> preg_id)
+
    end
   end
 
   def negativo
-    preg_id = params[:id]
+    resp_id = params[:id]
     us_id = current_user.id
-    voto = VoteQ.new(positivo: false, User_id: us_id, Question_id: preg_id)
+    voto = VoteAn.new(positivo: false, User_id: us_id, Answer_id: resp_id)
     if voto.save
      redirect_to preguntar_lapregunta_path(:id=> preg_id)
 
