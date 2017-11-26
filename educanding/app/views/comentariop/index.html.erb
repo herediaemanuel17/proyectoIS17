@@ -1,6 +1,6 @@
 <h1> comentarios </h1>
 <% if user_signed_in? %>
-  <h3> titulo : <%= @pregunta.titulo %> </h3>
+  <h3> Titulo : <%= @pregunta.titulo %> </h3>
   <h3> Descripcion : <%= @pregunta.descripcion %> </h3>
   <table class="table">
     <tr>
@@ -29,7 +29,7 @@
     </div>
     <% end %>
 <% else %>
-<h3> titulo : <%= @pregunta.titulo %> </h3>
+<h3> Titulo : <%= @pregunta.titulo %> </h3>
 <h3> Descripcion : <%= @pregunta.descripcion %> </h3>
 <table class="table">
   <tr>

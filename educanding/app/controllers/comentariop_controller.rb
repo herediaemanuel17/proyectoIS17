@@ -1,6 +1,6 @@
 class ComentariopController < ApplicationController
   def index
-    #p_id=params[:id]
+    p_id=params[:id]
     @comentariosp = RemarkQ.where(Question_id:params[:id]).all
     @pregunta = Question.find(p_id)
   end
