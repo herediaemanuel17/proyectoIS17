@@ -55,6 +55,11 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'hirb'
 
+group :produccion do
+gem 'pg'
+gem 'rails_12factor'
+end
+
 gem 'devise'
 #gem 'jquery-rails'
 #gem 'gon'
