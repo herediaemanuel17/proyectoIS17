@@ -10,12 +10,13 @@
 <!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist">
  <li role="presentation" class="active"><a href="#Rece" aria-controls=" " role="tab" data-toggle="tab">Recientes</a></li>
- <li role="presentation"><a href="#MiUni" aria-controls=" " role="tab" data-toggle="tab">MiUni</a></li>
+ <li role="presentation"><a href="#MiFacultad" aria-controls=" " role="tab" data-toggle="tab">MiUni</a></li>
  <li role="presentation"><a href="#MenosR" aria-controls=" " role="tab" data-toggle="tab">MenosR</a></li>
+ <li role="presentation"><a href="#Mispreguntas" aria-controls=" " role="tab" data-toggle="tab">MisPreguntas</a></li>
 </ul>
 <!-- Tab panes -->
 <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="Rece">
+    <div role="tabpanel" class="tab-pane active" id="PreguntasRecientes">
 				<h1> Ultimas Preguntas </h1>
 				<div class="col-xs-8">
 					<table class= table>
@@ -35,7 +36,7 @@
 					</table >
 				</div>
 		</div>
-    <div role="tabpanel" class="tab-pane" id="MiUni">
+    <div role="tabpanel" class="tab-pane" id="MiFacultad">
 			<h1> Preguntas de MiUniversidad </h1>
 			<div class="col-xs-8">
 				<table class= table>
@@ -55,7 +56,48 @@
 				</table >
 			</div>
 		</div>
-		<div role="tabpanel" class="tab-pane" id="MenosR"></div>
+		<div role="tabpanel" class="tab-pane" id="MenosR">
+			<h1> Preguntas con menos respuestas </h1>
+			<div class="col-xs-8">
+				<table class="table">
+					<tr>
+						<th>Nombre de Usuario</th>
+						<th>Titulo </th>
+						<th>Fecha de Creacion</th>
+					</tr>
+					<% @question.each do |p| %>
+						<% if Answer.where(Question_id:p.id).count < 3 || Answer.where(Question_id:p.id).count == 0 %>
+							<tr>
+							 <td><%=p.User.name%></td>
+							 <td><%=link_to p.titulo, preguntar_lapregunta_path(:id=> p.id)%></td>
+							 <td><%=p.created_at%></td>
+							</tr>
+						<% end %>
+					<% end %>
+				</table>
+			</div>
+		</div>
+		<div role="tabpanel" class="tab-pane" id="Mispreguntas">
+			<h1> Mis Preguntas </h1>
+				<div class="col-xs-8">
+					<table class="table">
+						<tr>
+							<th>Nombre de Usuario</th>
+							<th>Titulo </th>
+							<th>Fecha de Creacion</th>
+						</tr>
+						<% @question.each do |p| %>
+							<% if p.User_id == current_user.id%>
+								<tr>
+								 <td><%=p.User.name%></td>
+								 <td><%=link_to p.titulo, preguntar_lapregunta_path(:id=> p.id)%></td>
+								 <td><%=p.created_at%></td>
+								</tr>
+							<% end %>
+						<% end %>
+				  </table>
+				</div>
+			</div>
 
 </div>
 
