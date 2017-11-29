@@ -14,7 +14,7 @@ def crear
 end
 def lapregunta
   @pre=Question.find(params[:id])
-    @resp=@pre.Answers
+    @resp=Answer.where(Question_id: @pre.id)
 end
 
 def eliminar
