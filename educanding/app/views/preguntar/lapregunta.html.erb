@@ -52,12 +52,12 @@
               <button type="button" class="btn btn-">
                 <span class="glyphicon glyphicon-thumbs-up"></span>
                 <%= link_to_if VoteAn.where(User_id: current_user.id, Answer_id:a.id).empty? ," positivo "   ,voteas_positivo_path(:rid=> a.id, :id=> @pre.id)  %>
-                <%= VoteAn.where(positivo: true).count%>
+                <%= VoteAn.where(positivo: true, Answer_id: a.id).count%>
               </button>
               <button type="button" class="btn btn-succes">
                 <span class="glyphicon glyphicon-thumbs-down"></span>
                 <%= link_to_if VoteAn.where(User_id: current_user.id, Answer_id:a.id).empty? ,"negativos " ,voteas_negativo_path(:rid=> a.id, :id=> @pre.id)  %>
-                <%= VoteAn.where(positivo: false).count%>
+                <%= VoteAn.where(positivo: false, Answer_id: a.id).count%>
               </button>
             </th>
 
@@ -78,7 +78,6 @@
     </div>
     <div>
     	<%= r.submit "Responder", class: 'btn btn-primary' %>
-      <%= link_to "volver ", root_path,class: 'btn btn-primary' %>
     </div>
     <% end %>
 <% else %>
@@ -110,8 +109,5 @@
 
     <% end %>
 </table>
-<div>
-  <%= link_to "volver ", root_path,class: 'btn btn-primary' %>
-</div>
 </div>
 <% end %>

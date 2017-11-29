@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   post 'responder/crear'=>'responder#crear'
   get 'voteas/positivo'=>'voteas#positivo'
   get 'voteas/negativo'=>'voteas#negativo'
-  get 'responder/larespuesta'=>'responder#larespuesta'
+  get 'responder/repues'=>'responder#repues'
   get 'comentariop/nuevo'=>'comentariop#nuevo'
   get 'comentariop/index'=>'comentariop#index'
   post 'comentariop/crear'=>'comentariop#crear'
@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   get 'responder/eliminar'=>'responder#eliminar'
   get 'comentarior/eliminar'=>'comentarior#eliminar'
   get 'comentariop/eliminar'=>'comentariop#eliminar'
+  get 'etiqueta/nuevo'=>'etiqueta#nuevo'
+  post 'etiqueta/crear'=>'etiqueta#crear'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -19,5 +19,11 @@ class ResponderController < ApplicationController
     redirect_to preguntar_lapregunta_path(:id=> preg_id)
   end
 
+  def repues
+    id=params[:id]
+    @pre=Question.find(id)
+    @repues=Answer.where(Question_id: id)
+  end
+
 
 end

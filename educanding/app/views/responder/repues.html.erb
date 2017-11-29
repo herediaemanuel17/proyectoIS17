@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8">
+      <table class="table">
+      <th>
+        <th> Respuestas </th>
+        <th> Comentarios</th>
+        <th> Respondio: <th>
+      </tr>
+      <% @repues.each do |a| %>
+        <tr>
+          <td><%=a.descripcion%></td>
+          <td><%= link_to "Comentarios", comentarior_index_path(:id=> a.id) %></td>
+          <td><%=a.User.name%></td>
+
+          <div class="col">
+            <th>
+              <button type="button" class="btn btn-">
+                <span class="glyphicon glyphicon-thumbs-up"></span>
+                <%= link_to_if VoteAn.where(User_id: current_user.id, Answer_id:a.id).empty? ," positivo "   ,voteas_positivo_path(:rid=> a.id, :id=> @pre.id)  %>
+                <%= VoteAn.where(positivo: true, Answer_id: a.id).count%>
+              </button>
+              <button type="button" class="btn btn-succes">
+                <span class="glyphicon glyphicon-thumbs-down"></span>
+                <%= link_to_if VoteAn.where(User_id: current_user.id, Answer_id:a.id).empty? ,"negativos " ,voteas_negativo_path(:rid=> a.id, :id=> @pre.id)  %>
+                <%= VoteAn.where(positivo: false, Answer_id: a.id).count%>
+              </button>
+            </th>
+
+          </div>
+      <% end %>
+      </table>
+    </div>
+  </div>
+</div>
