@@ -1,0 +1,24 @@
+<div class="container">
+	<h1> Crear una universidad </h1>
+
+	<%= form_for :uni,url:univercities_path  do |p| %>
+
+    <div class="row">
+      <div class="col-md-6">
+        <%= p.label :nombre %>
+          <%= p.text_field :nombre, class: 'form-control', label: 'Nombre', placeholder: 'ingrese el titulo', required:true %>
+        </div>
+				<div class="col-md-6">
+	        <%= p.label :direccion %>
+	          <%= p.text_field :direccion, class: 'form-control', label: 'Direccion', placeholder: 'ingrese la direccion', required:true %>
+	        </div>
+					<div class="col-md-6">
+		        <%= p.label :pais %>
+		          <%= p.text_field :pais, class: 'form-control', label: 'Pais', placeholder: 'ingrese el pais ', required:true %>
+		       </div>
+      </div>
+  		<%= p.submit "Crear Universidad", class: 'btn btn-primary' %>
+  	</div>
+
+</div>
+<% end %>

@@ -1,0 +1,2 @@
+class Labelquestion < ApplicationRecord
+end

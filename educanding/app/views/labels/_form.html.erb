@@ -1,0 +1,37 @@
+<div class="container">
+	<h1> Crear una etiqueta </h1>
+
+	<%= form_for :uni,url:labels_path remote: true do |p| %>
+
+    <div class="row">
+      <div class="col-md-6">
+        <%= p.label :nombre %>
+          <%= p.text_field :nombre, class: 'form-control', label: 'Nombre', placeholder: 'ingrese el titulo', required:true %>
+        </div>
+
+  		<%= p.submit "Crear Etiqueta", class: 'btn btn-primary' %>
+  	</div>
+
+</div>
+<div id="label-modal" class="modal fade">
+ <div class="modal-dialog">
+	 <div class="modal-content">
+		 <div class="modal-header">
+			 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			 <h4 class="modal-title"><%= title %></h4>
+		 </div>
+		 <%= form_for :etiqueta,url:labels_path remote: true do |f| %>
+			 <div class="modal-body">
+				 <div class="form-group">
+					 <%= f.text_field :name, class: "form-control input-lg", placeholder: "Nombre del producto" %>
+				 </div>
+
+			 </div>
+
+			 <div class="modal-footer">
+				 <%= f.submit class: "btn btn-primary btn-lg btn-block" %>
+			 </div>
+		 <% end %>
+	 </div>
+ </div>
+</div>

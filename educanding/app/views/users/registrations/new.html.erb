@@ -25,7 +25,11 @@
     <% end %><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
+  <div class="field">
+     <% @universidades=Univercity.all%>
 
+     <%= f.collection_select :Univercity_id, @universidades, :id, :nombre, include_blank: true %>
+  </div>
   <div class="field">
     <%= f.label :confirmarcontraseña %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>

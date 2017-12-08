@@ -1,0 +1,61 @@
+********************************* 1. row *********************************
+                    id: 1
+                 email: a@a.com
+    encrypted_password: $2a$11$ePS0c6CgRHgB67.gZDiMXe3RcTw3KpxxHmqGI04JyewzADx8zo9hq
+  reset_password_token: 
+reset_password_sent_at: 
+   remember_created_at: 
+         sign_in_count: 1
+    current_sign_in_at: 2017-12-08 01:18:25 UTC
+       last_sign_in_at: 2017-12-08 01:18:25 UTC
+    current_sign_in_ip: 127.0.0.1
+       last_sign_in_ip: 127.0.0.1
+            created_at: 2017-12-08 01:18:25 UTC
+            updated_at: 2017-12-08 01:18:25 UTC
+                  name: jefferson
+             last_name: perez
+        foto_de_perfil: 
+                puntos: 
+         Univercity_id: 
+             Permit_id: 
+********************************* 2. row *********************************
+                    id: 2
+                 email: j@j.com
+    encrypted_password: $2a$11$lPs18xbW8JxOY2sbqr7A7ed.vm/ABFH8HeCHDHbMq.aMdhA0yZo46
+  reset_password_token: 
+reset_password_sent_at: 
+   remember_created_at: 
+         sign_in_count: 1
+    current_sign_in_at: 2017-12-08 14:01:57 UTC
+       last_sign_in_at: 2017-12-08 14:01:57 UTC
+    current_sign_in_ip: 127.0.0.1
+       last_sign_in_ip: 127.0.0.1
+            created_at: 2017-12-08 14:01:57 UTC
+            updated_at: 2017-12-08 14:01:57 UTC
+                  name: Juan
+             last_name: Perez
+        foto_de_perfil: 
+                puntos: 
+         Univercity_id: 
+             Permit_id: 
+********************************* 3. row *********************************
+                    id: 3
+                 email: j@a.com
+    encrypted_password: $2a$11$qLV/gIUVbbaDANBL7O.Tp.h2h7Sxn2zWs5/xAuvDdyktchygWDW0i
+  reset_password_token: 
+reset_password_sent_at: 
+   remember_created_at: 
+         sign_in_count: 1
+    current_sign_in_at: 2017-12-08 14:08:53 UTC
+       last_sign_in_at: 2017-12-08 14:08:53 UTC
+    current_sign_in_ip: 127.0.0.1
+       last_sign_in_ip: 127.0.0.1
+            created_at: 2017-12-08 14:08:53 UTC
+            updated_at: 2017-12-08 14:08:53 UTC
+                  name: Juan
+             last_name: Perez
+        foto_de_perfil: 
+                puntos: 
+         Univercity_id: 7
+             Permit_id: 
+3 rows in set

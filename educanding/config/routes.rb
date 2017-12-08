@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
+
   root 'educanding#index'
-  #resources :preguntar
+  resources :univercities
+  resources :labels
   get 'preguntar/nuevo'=>'preguntar#nuevo'
   post 'preguntar/crear'=>'preguntar#crear'
   get 'voteqs/positivo'=>'voteqs#positivo'
