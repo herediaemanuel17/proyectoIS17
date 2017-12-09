@@ -1,4 +1,4 @@
-class UnivercitiesController < ApplicationController
+class LabelsController < ApplicationController
   def index
 
   end
@@ -7,7 +7,6 @@ def new
 end
 
 def create
-  render plain: params[:uni].inspect
   @etiqueta=Label.new(params.require(:etiqueta).permit(:nombre))
   if @etiqueta.save
     #redirect_to univercities_path
