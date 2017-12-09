@@ -3,6 +3,7 @@ class LabelsController < ApplicationController
 
   end
 def new
+
   @etiqueta = Label.new
 end
 
