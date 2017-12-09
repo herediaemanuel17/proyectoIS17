@@ -17,18 +17,18 @@
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
-
-  <div class="field">
-    <%= f.label :contraseña %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> 6 caracteres minimos)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+</br>
   <div class="field">
      <% @universidades=Univercity.all%>
 
      <%= f.collection_select :Univercity_id, @universidades, :id, :nombre, include_blank: true %>
+  </div>
+  <div class="field">
+    <%= f.label :contraseña %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %>  caracteres minimos)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
   </div>
   <div class="field">
     <%= f.label :confirmarcontraseña %><br />

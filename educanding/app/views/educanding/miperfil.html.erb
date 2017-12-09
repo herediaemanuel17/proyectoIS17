@@ -1,0 +1,17 @@
+<h1>Mi Perfil</h1>
+<h5>Nombre: <%= @usuario.name %></h5>
+<h5>Apellido: <%= @usuario.last_name %></h5>
+<h5>E-mail: <%= @usuario.email %></h5>
+<% if @usuario.Univercity_id != nil %>
+<h5>Facultad: <%= @usuario.Univercity.nombre%></h5>
+<% else %>
+<h5>Facultad: Ninguna</h5>
+<% end %>
+<h5>Cantidad De Preguntas Realizadas: <%= @usuario.Questions.count %></h5>
+<h5>Cantidad De Respuestas Realizadas: <%= @usuario.Answers.count %></h5>
+<h5>Cantidad De Comentarios Realizadas: <%= @usuario.RemarkQs.count + @usuario.RemarkAns.count %></h5>
+<% if current_user.id == @usuario.id%>
+<%= link_to "EditarPerfil", edit_user_registration_path, class: 'btn btn-info btn-sm'%>
+<% end %>
+</br>
+<%= link_to "Volver", root_path %>

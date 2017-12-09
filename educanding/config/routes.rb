@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   root 'educanding#index'
   resources :univercities
   resources :labels
+  get 'educanding/miperfil'=>'educanding#miperfil'
+  get 'preguntar/mejorrespuesta'=>'preguntar#mejorrespuesta'
   get 'preguntar/nuevo'=>'preguntar#nuevo'
   post 'preguntar/crear'=>'preguntar#crear'
   get 'voteqs/positivo'=>'voteqs#positivo'

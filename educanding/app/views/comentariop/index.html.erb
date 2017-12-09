@@ -1,7 +1,12 @@
-<h1> comentarios </h1>
 <% if user_signed_in? %>
-  <h3> Titulo : <%= @pregunta.titulo %> </h3>
-  <h3> Descripcion : <%= @pregunta.descripcion %> </h3>
+  <table class = "table">
+  <tr>
+  <th><h1> Titulo : <%= @pregunta.titulo %> </h1> </th><th> <h4>usuario: <%= @pregunta.User.email%></h4></th>
+  </tr>
+  </table>
+  <h3> Pregunta:</br> <%= @pregunta.descripcion %> </h3>
+
+  <h3>Comentarios</h3>
   <table class="table">
     <tr>
       <th> Comentarios </th>
