@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :labels
   get 'educanding/miperfil'=>'educanding#miperfil'
   get 'preguntar/mejorrespuesta'=>'preguntar#mejorrespuesta'
+  get 'educanding/denuncias'=>'educanding#denuncias'
   get 'preguntar/nuevo'=>'preguntar#nuevo'
   post 'preguntar/crear'=>'preguntar#crear'
   get 'voteqs/positivo'=>'voteqs#positivo'

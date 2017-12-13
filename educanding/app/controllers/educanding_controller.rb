@@ -19,4 +19,8 @@ class EducandingController < ApplicationController
     @usuario=User.find(params[:id])
   end
 
+  def denuncias
+    
+  end
+
 end

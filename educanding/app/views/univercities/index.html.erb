@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="col-xs-6">
+<h1> Lista de Facultades </h1>
+
+<table class="table">
+  <tr>
+    <th> Nombre </th>
+    <th> Pais </th>
+    <th> Direccion </th>
+  </tr>
+  <% @uni.each do |u| %>
+    <tr>
+      <td><%= u.nombre %></td>
+      <td><%= u.pais %></td>
+      <td><%= u.direccion %></td>
+    </tr>
+  <% end %>
+</table>
+<%= link_to "volver", new_univercity_path %>
+</div>
+</div>
