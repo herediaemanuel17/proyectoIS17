@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171208163428) do
+ActiveRecord::Schema.define(version: 20171213031547) do
 
   create_table "answers", force: :cascade do |t|
     t.string "descripcion"
@@ -36,17 +36,19 @@ ActiveRecord::Schema.define(version: 20171208163428) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "labelquestions", force: :cascade do |t|
-    t.integer "Label_id"
-    t.integer "Question_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "labels", force: :cascade do |t|
     t.string "nombre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "labels_questions", force: :cascade do |t|
+    t.integer "Label_id"
+    t.integer "Question_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["Label_id"], name: "index_labels_questions_on_Label_id"
+    t.index ["Question_id"], name: "index_labels_questions_on_Question_id"
   end
 
   create_table "permits", force: :cascade do |t|
@@ -108,9 +110,9 @@ ActiveRecord::Schema.define(version: 20171208163428) do
     t.string "name"
     t.string "last_name"
     t.string "foto_de_perfil"
-    t.integer "puntos"
     t.integer "Univercity_id"
     t.integer "Permit_id"
+    t.integer "puntos", default: 1, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
