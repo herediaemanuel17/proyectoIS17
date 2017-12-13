@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171213031547) do
+ActiveRecord::Schema.define(version: 20171213163424) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "answers", force: :cascade do |t|
     t.string "descripcion"
@@ -43,12 +46,12 @@ ActiveRecord::Schema.define(version: 20171213031547) do
   end
 
   create_table "labels_questions", force: :cascade do |t|
-    t.integer "Label_id"
-    t.integer "Question_id"
+    t.integer "label_id"
+    t.integer "question_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["Label_id"], name: "index_labels_questions_on_Label_id"
-    t.index ["Question_id"], name: "index_labels_questions_on_Question_id"
+    t.index ["label_id"], name: "index_labels_questions_on_label_id"
+    t.index ["question_id"], name: "index_labels_questions_on_question_id"
   end
 
   create_table "permits", force: :cascade do |t|

@@ -16,18 +16,20 @@
       </tr>
     <% end %>
   </table>
-  <%= form_for :Comer , url:comentarior_crear_path do |r| %>
-    <div class="row">
-      <div class="col-md-6">
-          <%= hidden_field_tag :id, @respuesta.id %>
-          <%= r.text_area :descripcion, class: 'form-control', label: 'Comentario', placeholder: 'ingrese un comentario', required:true %>
+  <% if current_user.puntos > 20 %>
+    <%= form_for :Comer , url:comentarior_crear_path do |r| %>
+      <div class="row">
+        <div class="col-md-6">
+            <%= hidden_field_tag :id, @respuesta.id %>
+            <%= r.text_area :descripcion, class: 'form-control', label: 'Comentario', placeholder: 'ingrese un comentario', required:true %>
+        </div>
       </div>
-    </div>
-    <div>
-      <%= r.submit "Comentar", class: 'btn btn-primary' %>
-    </div>
+      <div>
+        <%= r.submit "Comentar", class: 'btn btn-primary' %>
+      </div>
+      <% end %>
     <% end %>
-<% else %>
+  <% else %>
   <h3> Descripcion : <%= @respuesta.descripcion %> </h3>
   <table class="table">
     <tr>

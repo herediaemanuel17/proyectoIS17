@@ -8,7 +8,8 @@ def crear
  	 desc=params[:pregunta] [:descripcion]
  	 us_id=current_user.id
    uni_id=current_user.Univercity_id
-	 @pregunta = Question.new(titulo:tit,descripcion:desc,User_id:us_id,Univercity_id:uni_id,:label_ids => [])
+	 @pregunta = Question.new(titulo:tit,descripcion:desc,User_id:us_id,Univercity_id:uni_id)
+   ##,:label_ids => []
 	 if @pregunta.save
  		redirect_to root_path
  	end

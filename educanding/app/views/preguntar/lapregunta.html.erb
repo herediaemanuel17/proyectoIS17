@@ -17,12 +17,12 @@
           <th>
             <button type="button" class="btn btn-">
               <span class="glyphicon glyphicon-thumbs-up"></span>
-              <%= link_to_if VoteQ.where(User_id: current_user.id,Question_id: @pre.id).empty? && @pre.User_id != current_user.id , " positivo "   ,voteqs_positivo_path(:id=> @pre.id)  %>
+              <%= link_to_if VoteQ.where(User_id: current_user.id,Question_id: @pre.id).empty? && @pre.User_id != current_user.id && current_user.puntos > 15 , " positivo "   ,voteqs_positivo_path(:id=> @pre.id)  %>
               <%= VoteQ.where(positivo: true, Question_id: @pre.id).count%>
             </button>
             <button type="button" class="btn btn-succes">
               <span class="glyphicon glyphicon-thumbs-down"></span>
-              <%= link_to_if VoteQ.where(User_id: current_user.id,Question_id: @pre.id).empty? && @pre.User_id != current_user.id ,"negativos " ,voteqs_negativo_path(:id=> @pre.id)  %>
+              <%= link_to_if VoteQ.where(User_id: current_user.id,Question_id: @pre.id).empty? && @pre.User_id != current_user.id && current_user.puntos > 100 ,"negativos " ,voteqs_negativo_path(:id=> @pre.id)  %>
               <%= VoteQ.where(positivo: false, Question_id:@pre.id).count%>
             </button>
           </th>
@@ -31,13 +31,8 @@
   				<% end %>
         </th>
         <th>
-<<<<<<< HEAD
           <!-- <%= link_to "CrearEtiquete",preguntar_eliminar_path(:id=>@pre.id) , class: 'btn btn-info btn-sm' %>-->
-=======
-
->>>>>>> ce484f3cc632644e2efd1ed7b7ea8cced6e08479
       </th>
-      <% end %>
     </div>
 
     </div>
@@ -77,12 +72,12 @@
             <th>
               <button type="button" class="btn btn-">
                 <span class="glyphicon glyphicon-thumbs-up"></span>
-                <%= link_to_if VoteAn.where(User_id: current_user.id, Answer_id:a.id).empty? && @pre.User_id != current_user.id," positivo "   ,voteas_positivo_path(:rid=> a.id, :id=> @pre.id)  %>
+                <%= link_to_if VoteAn.where(User_id: current_user.id, Answer_id:a.id).empty? && @pre.User_id != current_user.id && current_user.puntos >15 ," positivo "   ,voteas_positivo_path(:rid=> a.id, :id=> @pre.id)  %>
                 <%= VoteAn.where(positivo: true, Answer_id: a.id).count%>
               </button>
               <button type="button" class="btn btn-succes">
                 <span class="glyphicon glyphicon-thumbs-down"></span>
-                <%= link_to_if VoteAn.where(User_id: current_user.id, Answer_id:a.id).empty? && @pre.User_id != current_user.id,"negativos " ,voteas_negativo_path(:rid=> a.id, :id=> @pre.id)  %>
+                <%= link_to_if VoteAn.where(User_id: current_user.id, Answer_id:a.id).empty? && @pre.User_id != current_user.id && current_user.puntos > 100 ,"negativos " ,voteas_negativo_path(:rid=> a.id, :id=> @pre.id)  %>
                 <%= VoteAn.where(positivo: false, Answer_id: a.id).count%>
               </button>
             </th>
