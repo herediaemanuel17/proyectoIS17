@@ -1,1 +1,44 @@
-Denuncias papa!!!
+<div class="container">
+<ul class="nav nav-tabs" role="tablist">
+ <li role="presentation" class="active"><a href="#DenunP" aria-controls=" " role="tab" data-toggle="tab">PreguntasDenunciadas</a></li>
+ <li role="presentation"><a href="#DenunR" aria-controls=" " role="tab" data-toggle="tab">RespuestasDenunciadas</a></li>
+</ul>
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane active" id="Denunp">
+      <h1> Preguntas denunciadas </h1>
+      <div class="col-xs-8">
+        <table class="table">
+          <tr>
+            <th> Motivo </th>
+            <th> Titulo </th>
+            <th> Denunciador </th>
+          </tr>
+          <% @denup.each do |d| %>
+          <tr>
+            <td><%= d.motivo %></td>
+            <td><% q=Question.find(d.Question_id) %><%= q.titulo %> </td>
+            <td><%  u=User.find(d.User_id)%><%= u.name%></td>
+          <% end %>
+        </table>
+      </div>
+  </div>
+    <div role="tabpanel" class="tab-pane" id="DenunR">
+        <h1> Respuestas Denunciadas </h1>
+        <div class="col-xs-8">
+          <table class="table">
+            <tr>
+              <th> Motivo </th>
+              <th> Respuesta </th>
+              <th> Denunciador </th>
+            </tr>
+            <% @denur.each do |d| %>
+            <tr>
+              <td><%= d.motivo %></td>
+              <td><% r=Answer.find(d.Answer_id) %><%= r.descripcion %> </td>
+              <td><% u=User.find(d.User_id)%><%= u.name%></td>
+            <% end %>
+          </table>
+        </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="container">
+
+  <h4> descripcion: <%= @respuesta.descripcion %> </h4>
+	<%= form_for :denuncia , url:denunciar_denunciar_path do |p| %>
+
+    <div class="row">
+      <div class="col-md-6">
+        <%= p.label :Motivo_de_denuncia %>
+          <%= hidden_field_tag :pid, @pregunta.id %>
+          <%= hidden_field_tag :rid, @respuesta.id%>
+          <%= p.text_field :motivo, class: 'form-control', label: 'motivo', placeholder: 'ingrese el motivo de denuncia', required:true %>
+        </div>
+      </div>
+
+  		<%= p.submit "Denuncia", class: 'btn btn-primary' %>
+  	</div>
+<% end %>
+</div>
