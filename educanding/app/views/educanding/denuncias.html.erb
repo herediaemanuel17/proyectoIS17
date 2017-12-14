@@ -17,8 +17,9 @@
           <tr>
             <td><%= d.motivo %></td>
             <td><% q=Question.find(d.Question_id) %><%= q.titulo %> </td>
-            <td><%  u=User.find(d.User_id)%><%= u.name%></td>
+            <td><% u=User.find(d.User_id)%><%= u.name%></td>
           <% end %>
+        </tr>
         </table>
       </div>
   </div>
@@ -42,3 +43,4 @@
     </div>
   </div>
 </div>
+<%= link_to "Volver", root_path %>
