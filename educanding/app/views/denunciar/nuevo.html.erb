@@ -12,7 +12,7 @@
         </div>
       </div>
 
-  		<%= p.submit "Denuncia", class: 'btn btn-primary' %>
+  		<%= p.submit "Denuncia", class: 'btn btn-primary' %></br>
+      <%= link_to "Volver", preguntar_lapregunta_path(:id=>@pregunta.id) %>
   	</div>
 <% end %>
-</div>

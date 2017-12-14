@@ -1,11 +1,6 @@
+<h1> Titulo : <%= @pregunta.titulo %> </h1>
+<h3> Pregunta:</br> <%= @pregunta.descripcion %> </h3>
 <% if user_signed_in? %>
-  <table class = "table">
-  <tr>
-  <th><h1> Titulo : <%= @pregunta.titulo %> </h1> </th><th> <h4>usuario: <%= @pregunta.User.email%></h4></th>
-  </tr>
-  </table>
-  <h3> Pregunta:</br> <%= @pregunta.descripcion %> </h3>
-
   <h3>Comentarios</h3>
   <table class="table">
     <tr>
@@ -19,6 +14,7 @@
         <td><% if a.User_id == current_user.id %>
           <%= link_to "eliminar",comentariop_eliminar_path(:cid=>a.id, :id=> @pregunta.id) , class: 'btn btn-info btn-sm' %>
         <% end %> </td>
+        <td> <%= link_to "denunciar", denunciacp_nuevo_path(:cid=>a.id, :pid=>@pregunta.id), class: 'btn btn-info btn-sm' %>
       </tr>
     <% end %>
   </table>
@@ -35,9 +31,8 @@
       </div>
       <% end %>
     <% end %>
+    <%= link_to "Volver", preguntar_lapregunta_path(:id=>@pregunta.id) %>
 <% else %>
-<h3> Titulo : <%= @pregunta.titulo %> </h3>
-<h3> Descripcion : <%= @pregunta.descripcion %> </h3>
 <table class="table">
   <tr>
     <th> Comentarios </th>
@@ -50,4 +45,5 @@
     </tr>
   <% end %>
 </table>
+<%= link_to "Volver", preguntar_lapregunta_path(:id=>@pregunta.id) %>
 <% end %>

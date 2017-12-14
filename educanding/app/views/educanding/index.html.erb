@@ -8,7 +8,7 @@
 				<%= link_to "Crear Etiqueta", new_label_path, remote: true, class: 'btn btn-info btn-sm' %>
 				<% end %>
 				<% if current_user.puntos > 500 %>
-				<%= link_to "Crear Universidad", new_univercity_path,class: 'btn btn-info btn-sm' %>
+				<%= link_to "ver facultades", univercities_path,class: 'btn btn-info btn-sm' %>
 				<% end %>
 				<%= form_tag(root_path, method: :get) do %>
                 <%= text_field_tag :query %>

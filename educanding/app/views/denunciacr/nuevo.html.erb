@@ -1,17 +1,19 @@
 <div class="container">
-	<h1> titulo: <%= @pregunta.titulo%> </h1>
-  <h4> descripcion: <%= @pregunta.descripcion %> </h4>
-	<%= form_for :denuncia , url:denunciap_denunciar_path do |p| %>
+  <h2> Respuesta: <%= @respuesta.descripcion %> </h2>
+  <h4> Descripcion: <%= @comentarior.descripcion %> </h4>
+	<%= form_for :denuncia , url:denunciacr_denunciar_path do |p| %>
 
     <div class="row">
       <div class="col-md-6">
         <%= p.label :Motivo_de_denuncia %>
-          <%= hidden_field_tag :pid, @pregunta.id %>
+          <%= hidden_field_tag :cid, @comentarior.id %>
+          <%= hidden_field_tag :pid, @respuesta.id%>
           <%= p.text_field :motivo, class: 'form-control', label: 'motivo', placeholder: 'ingrese el motivo de denuncia', required:true %>
         </div>
       </div>
 
   		<%= p.submit "Denuncia", class: 'btn btn-primary' %></br>
-			<%= link_to "Volver", preguntar_lapregunta_path(:id=>@pregunta.id) %>
+      <%= link_to "volver", comentarior_index_path(:id=> @respuesta.id) %>
   	</div>
 <% end %>
+</div>

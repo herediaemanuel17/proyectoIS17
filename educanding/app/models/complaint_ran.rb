@@ -1,0 +1,2 @@
+class ComplaintRan < ApplicationRecord
+end

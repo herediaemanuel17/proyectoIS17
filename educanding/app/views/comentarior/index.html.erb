@@ -1,6 +1,6 @@
-<h1> comentarios </h1>
+<h1> Respuesta: <%= @respuesta.descripcion %> </h1>
 <% if user_signed_in? %>
-  <h3> Descripcion : <%= @respuesta.descripcion %> </h3>
+  <h3> Comentarios  </h3>
   <table class="table">
     <tr>
       <th> Comentarios </th>
@@ -13,6 +13,7 @@
         <td><% if a.User_id == current_user.id %>
           <%= link_to "eliminar",comentarior_eliminar_path(:cid=>a.id, :id=> @respuesta.id) , class: 'btn btn-info btn-sm' %>
         <% end %> </td>
+          <td> <%= link_to "denunciar", denunciacr_nuevo_path(:cid=>a.id, :rid=>@respuesta.id), class: 'btn btn-info btn-sm' %>
       </tr>
     <% end %>
   </table>
@@ -29,8 +30,8 @@
       </div>
       <% end %>
     <% end %>
+      <%= link_to "Volver", preguntar_lapregunta_path(:id=>@respuesta.Question.id) %>
   <% else %>
-  <h3> Descripcion : <%= @respuesta.descripcion %> </h3>
   <table class="table">
     <tr>
       <th> Comentarios </th>
@@ -44,4 +45,5 @@
       </tr>
     <% end %>
   </table>
+  <%= link_to "Volver", preguntar_lapregunta_path(:id=>@respuesta.Question.id) %>
 <% end %>

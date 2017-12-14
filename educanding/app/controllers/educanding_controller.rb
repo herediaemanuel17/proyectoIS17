@@ -22,6 +22,7 @@ class EducandingController < ApplicationController
   def denuncias
     @denup=ComplaintQ.all
     @denur=ComplaintAn.all
+    @denuncr=ComplaintRan.all
+    @denuncp=ComplaintRq.all
   end
-
 end

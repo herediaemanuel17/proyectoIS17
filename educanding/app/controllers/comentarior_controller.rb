@@ -1,8 +1,8 @@
 class ComentariorController < ApplicationController
   def index
-    r_id=params[:id]
+    id = params[:id]
     @comentariosr = RemarkAn.where(Answer_id:params[:id]).all
-    @respuesta = Answer.find(r_id)
+    @respuesta = Answer.find(id)
   end
 
   def nuevo

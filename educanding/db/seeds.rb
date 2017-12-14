@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "universidaddes"
 Univercity.create(nombre: 'Otros')
-Univercity.create(nombre: 'Facultad Torcuato Di Tella')
+Univercity.create(nombre: 'Facultad De Informatica', direccion: '50 y 120', pais: 'Argentina')
 
 puts "permisos"
 Permit.create(acciones: 'Crear pregunta o respuesta', puntos:'1')
@@ -19,5 +19,3 @@ Permit.create(acciones:'Administrar facultades', puntos:'500')
 Permit.create(acciones:'Modificar contenidos', puntos:'1000')
 puts "label"
 Label.create(nombre:'Otras' )
-Label.create(nombre:'Otras1' )
-Label.create(nombre:'Otras2' )

@@ -2,6 +2,7 @@
 <ul class="nav nav-tabs" role="tablist">
  <li role="presentation" class="active"><a href="#DenunP" aria-controls=" " role="tab" data-toggle="tab">PreguntasDenunciadas</a></li>
  <li role="presentation"><a href="#DenunR" aria-controls=" " role="tab" data-toggle="tab">RespuestasDenunciadas</a></li>
+ <li role="presentation"><a href="#DenunC" aria-controls=" " role="tab" data-toggle="tab">ComentariosDenunciados</a></li>
 </ul>
 <div class="tab-content">
   <div role="tabpanel" class="tab-pane active" id="Denunp">
@@ -37,6 +38,30 @@
               <td><%= d.motivo %></td>
               <td><% r=Answer.find(d.Answer_id) %><%= r.descripcion %> </td>
               <td><% u=User.find(d.User_id)%><%= u.name%></td>
+            <% end %>
+          </table>
+        </div>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="DenunC">
+        <h1> Comentarios Denunciados </h1>
+        <div class="col-xs-8">
+          <table class="table">
+            <tr>
+              <th> Motivo </th>
+              <th> Comentario </th>
+              <th> Denunciador </th>
+            </tr>
+            <% @denuncp.each do |d| %>
+            <tr>
+              <td><%= d.motivo %></td>
+              <td><% r=RemarkQ.find(d.remarkq_id) %><%= r.descripcion %> </td>
+              <td><% u=User.find(d.user_id)%><%= u.name%></td>
+            <% end %>
+            <% @denuncr.each do |d| %>
+            <tr>
+              <td><%= d.motivo %></td>
+              <td><% r=RemarkAn.find(d.remarkan_id) %><%= r.descripcion %> </td>
+              <td><% u=User.find(d.user_id)%><%= u.name%></td>
             <% end %>
           </table>
         </div>

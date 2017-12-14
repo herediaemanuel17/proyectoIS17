@@ -69,7 +69,7 @@
             <% end %>
           <td><%= link_to "Comentarios", comentarior_index_path(:id=> a.id) %></td>
           <td><%=a.User.name%></td>
-          <td><%= link_to "denunciar", denunciar_nuevo_path(:pid=> @pre.id, :rid=>a.id) %></td>
+
 
 
           <div class="col">
@@ -90,7 +90,7 @@
           <td><% if a.User_id == current_user.id %>
   					<%= link_to "eliminar",responder_eliminar_path(:id=>a.id, :pid=> @pre.id) , class: 'btn btn-info btn-sm' %>
   				<% end %> </td>
-
+          <td><%= link_to "denunciar", denunciar_nuevo_path(:pid=> @pre.id, :rid=>a.id) %></td>
         </tr>
   		<% end %>
   </table>
