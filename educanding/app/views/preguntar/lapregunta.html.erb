@@ -3,7 +3,10 @@
   <title> Preguntar </title>
   <h3> Ususario: <%= @pre.User.name %> <%=  @pre.User.last_name %> </h3>
   <h3> Pregunta: <%= @pre.titulo %> </h3>
-
+  <h3> Etiquetas: </h3>
+   <% @pre.Labels.each do |l| %>
+     <h3> <%=l.nombre %> </h3>
+   <% end %>
   <div class="col-xs-10">
   <table class="table">
     <tr>

@@ -1,0 +1,36 @@
+<h1> Buscar Preguntas </h1>
+<%= form_tag(buscar_preg_path, method: :get) do %>
+        <%= text_field_tag :query %>
+        <%= submit_tag "Buscar Pregunta" %>
+<% end %>
+
+
+<%= form_tag(buscar_pregxlabels_path, method: :get) do %>
+				              <div style="overflow-x:auto;">
+				              	<table >
+									  <div class="field">
+									    <% Label.all.each do |tag| %>
+									         <td> <%= check_box_tag 'Label_ids[]', tag.id %> </td>
+									         <td><%= tag.nombre %> <br></td>
+									    <% end %>
+									  </div>
+								</table>
+				       </div>
+				        <%= submit_tag "Buscar" %>
+<% end %>
+<table class= table>
+<tr>
+  <th>Nombre de Usuario</th>
+  <th>Titulo</th>
+  <th>Fecha de Creacion</th>
+</tr>
+<% @questions.each do |p| %>
+
+  <tr>
+    <td><%=p.User.name%></td>
+    <td><%= link_to p.titulo, preguntar_lapregunta_path(:id=> p.id)%></td>
+    <td><%=p.created_at%></td>
+  </tr>
+
+<% end %>
+</table >

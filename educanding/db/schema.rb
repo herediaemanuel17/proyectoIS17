@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171214160751) do
+ActiveRecord::Schema.define(version: 20171214231452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,12 +62,10 @@ ActiveRecord::Schema.define(version: 20171214160751) do
   end
 
   create_table "labels_questions", force: :cascade do |t|
-    t.integer "label_id"
-    t.integer "question_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["label_id"], name: "index_labels_questions_on_label_id"
-    t.index ["question_id"], name: "index_labels_questions_on_question_id"
+    t.bigint "Label_id"
+    t.bigint "Question_id"
+    t.index ["Label_id"], name: "index_labels_questions_on_Label_id"
+    t.index ["Question_id"], name: "index_labels_questions_on_Question_id"
   end
 
   create_table "permits", force: :cascade do |t|

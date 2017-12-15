@@ -17,11 +17,10 @@
   			</div>
   		</div>
 			<div class="field">
-			    <% Label.all.each do |label| %>
-			        <%= check_box_tag "pregunta[label_ids][]", label.id %>
-			        <%= label.nombre %> <br>
-
-			    <% end %>
+				<% Label.all.each do |label| %>
+										 <%= check_box_tag "pregunta[Label_ids][]", label.id %>
+										 <%= label.nombre %> <br>
+								 <% end %>
 			  </div>
   		<%= p.submit "Preguntar", class: 'btn btn-primary' %>
   	</div>
