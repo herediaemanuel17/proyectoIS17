@@ -7,11 +7,13 @@
 <% else %>
 <h5>Facultad: Ninguna</h5>
 <% end %>
+<h5>Cantidad de Puntos de Usuario: <%= @usuario.puntos%></h5>
 <h5>Cantidad De Preguntas Realizadas: <%= @usuario.Questions.count %></h5>
 <h5>Cantidad De Respuestas Realizadas: <%= @usuario.Answers.count %></h5>
 <h5>Cantidad De Comentarios Realizadas: <%= @usuario.RemarkQs.count + @usuario.RemarkAns.count %></h5>
 <% if current_user.id == @usuario.id%>
 <%= link_to "EditarPerfil", edit_user_registration_path, class: 'btn btn-info btn-sm'%>
+<%= link_to "CerrarCuenta", educanding_cerrar_path, class: 'btn btn-info btn-sm'%>
 <% end %>
 </br>
 <%= link_to "Volver", root_path %>

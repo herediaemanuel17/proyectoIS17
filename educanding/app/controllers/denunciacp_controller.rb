@@ -16,4 +16,15 @@ class DenunciacpController < ApplicationController
     end
   end
 
+  def ignorar
+    ComplaintRq.find(params[:id]).destroy
+    redirect_to educanding_denuncias_path
+  end
+
+  def eliminar
+    RemarkQ.find(ComplaintRq.find(params[:id]).remarkq_id).destroy
+    ComplaintRq.find(params[:id]).destroy
+    redirect_to educanding_denuncias_path
+  end
+
 end
