@@ -23,8 +23,8 @@ class DenunciacrController < ApplicationController
   end
 
   def eliminar
-    RemarkAn.find(ComplaintRan.find(params[:id]).remarkan_id).destroy
-    ComplaintRan.find(params[:id]).destroy
+    rid=ComplaintRan.find(params[:id]).remarkan_id
+    RemarkAn.find(rid).destroy
     redirect_to educanding_denuncias_path
   end
 

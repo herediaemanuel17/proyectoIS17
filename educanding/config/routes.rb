@@ -2,8 +2,6 @@ Rails.application.routes.draw do
   devise_for :users
 
   root 'educanding#index'
-  resources :univercities
-  resources :labels
   get 'educanding/miperfil'=>'educanding#miperfil'
   get 'educanding/cerrar'=>'educanding#cerrar'
   get 'educanding/no'=>'educanding#no'
@@ -44,13 +42,15 @@ Rails.application.routes.draw do
   post 'comentarior/crear'=>'comentarior#crear'
   get 'preguntar/eliminar'=>'preguntar#eliminar'
   get 'preguntar/buscar'=>'preguntar#buscar_pregx'
-
-
   get 'responder/eliminar'=>'responder#eliminar'
   get 'comentarior/eliminar'=>'comentarior#eliminar'
   get 'comentariop/eliminar'=>'comentariop#eliminar'
-  get 'etiqueta/nuevo'=>'etiqueta#nuevo'
-  post 'etiqueta/crear'=>'etiqueta#crear'
+  get 'labels/index'=>'labels#index'
+  get 'labels/new'=>'labels#new'
+  post 'labels/crear'=>'labels#crear'
+  post 'univercities/crear'=>'univercities#crear'
+  get 'univercities/index'=>'univercities#index'
+  get 'univercities/new'=>'univercities#new'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -1,0 +1,15 @@
+<div class="container">
+	<h1> Crear una etiqueta </h1>
+
+	<%= form_for :etiqueta,url:labels_crear_path  do |p| %>
+
+    <div class="row">
+      <div class="col-md-6">
+        <%= p.label :nombre %>
+          <%= p.text_field :nombre, class: 'form-control', label: 'Nombre', placeholder: 'ingrese el nombre de la etiqueta', required:true %>
+        </div>
+    </div>
+  	<%= p.submit "Crear Etiqueta", class: 'btn btn-primary' %></br>
+		<%= link_to "volver", labels_index_path %>
+  <% end %>
+</div>

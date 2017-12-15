@@ -5,10 +5,10 @@
 			<h3> Quieres realizar una nueva pregunta </h3>
 				<%= link_to "Preguntar", preguntar_nuevo_path, class: 'btn btn-info btn-sm' %>
 				<% if current_user.puntos > 299 %>
-				<%= link_to "Crear Etiqueta", new_label_path, remote: true, class: 'btn btn-info btn-sm' %>
+				<%= link_to "ver etiquetas", labels_index_path, class: 'btn btn-info btn-sm' %>
 				<% end %>
 				<% if current_user.puntos > 499 %>
-				<%= link_to "ver facultades", univercities_path,class: 'btn btn-info btn-sm' %>
+				<%= link_to "ver facultades", univercities_index_path,class: 'btn btn-info btn-sm' %>
 				<% end %>
 				<%= form_tag(root_path, method: :get) do %>
                 <%= text_field_tag :query %>

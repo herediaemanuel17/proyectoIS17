@@ -25,7 +25,6 @@ class DenunciarController < ApplicationController
   def eliminar
     aid = params[:rid]
     Answer.find(aid).destroy
-    ComplaintAn.find(params[:id]).destroy
     redirect_to educanding_denuncias_path
   end
 
