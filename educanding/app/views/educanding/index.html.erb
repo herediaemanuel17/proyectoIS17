@@ -4,10 +4,10 @@
 	<div class="col-xs-4">
 			<h3> Quieres realizar una nueva pregunta </h3>
 				<%= link_to "Preguntar", preguntar_nuevo_path, class: 'btn btn-info btn-sm' %>
-				<% if current_user.puntos > 300 %>
+				<% if current_user.puntos > 299 %>
 				<%= link_to "Crear Etiqueta", new_label_path, remote: true, class: 'btn btn-info btn-sm' %>
 				<% end %>
-				<% if current_user.puntos > 500 %>
+				<% if current_user.puntos > 499 %>
 				<%= link_to "ver facultades", univercities_path,class: 'btn btn-info btn-sm' %>
 				<% end %>
 				<%= form_tag(root_path, method: :get) do %>
@@ -36,7 +36,11 @@
 					</tr>
 					<% @question.each do |p| %>
 						<tr>
-							<td><%=link_to p.User.name, educanding_miperfil_path(:id=>p.User.id)%></td>
+							<% if p.User.activa == false %>
+								<td><%= p.User.name%></td>
+							<% else %>
+								<td><%=link_to p.User.name, educanding_miperfil_path(:id=>p.User.id)%></td>
+							<% end %>
 							<td><%= link_to p.titulo, preguntar_lapregunta_path(:id=> p.id)%></td>
 							<td><%=p.created_at%></td>
 						</tr>
@@ -56,7 +60,11 @@
 				<%if @questionMiUni != nil %>
 					<% @questionMiUni.each do |p| %>
 						<tr>
-							<td><%=link_to p.User.name, educanding_miperfil_path(:id=>p.User.id)%></td>
+							<% if p.User.activa == false %>
+								<td><%= p.User.name%></td>
+							<% else %>
+								<td><%=link_to p.User.name, educanding_miperfil_path(:id=>p.User.id)%></td>
+							<% end %>
 							<td><%= link_to p.titulo, preguntar_lapregunta_path(:id=> p.id)%></td>
 							<td><%=p.created_at%></td>
 						</tr>
@@ -78,7 +86,11 @@
 					<% @question.each do |p| %>
 						<% if Answer.where(Question_id:p.id).count < 3 || Answer.where(Question_id:p.id).count == 0 %>
 							<tr>
-							 <td><%=link_to p.User.name, educanding_miperfil_path(:id=>p.User.id)%></td>
+								<% if p.User.activa == false %>
+  								<td><%= p.User.name%></td>
+  							<% else %>
+  								<td><%=link_to p.User.name, educanding_miperfil_path(:id=>p.User.id)%></td>
+  							<% end %>
 							 <td><%=link_to p.titulo, preguntar_lapregunta_path(:id=> p.id)%></td>
 							 <td><%=p.created_at%></td>
 							</tr>
@@ -99,7 +111,11 @@
 				<% @question.each do |p| %>
 					<%if p.User_id == current_user.id %>
 						<tr>
-							<td><%=link_to p.User.name, educanding_miperfil_path(:id=>p.User.id)%></td>
+							<% if p.User.activa == false %>
+								<td><%= p.User.name%></td>
+							<% else %>
+								<td><%=link_to p.User.name, educanding_miperfil_path(:id=>p.User.id)%></td>
+							<% end %>
 							<td><%= link_to p.titulo, preguntar_lapregunta_path(:id=> p.id)%></td>
 							<td><%=p.created_at%></td>
 						</tr>

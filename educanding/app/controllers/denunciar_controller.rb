@@ -17,4 +17,16 @@ class DenunciarController < ApplicationController
     end
   end
 
+  def ignorar
+    ComplaintAn.find(params[:id]).destroy
+    redirect_to educanding_denuncias_path
+  end
+
+  def eliminar
+    aid = params[:rid]
+    Answer.find(aid).destroy
+    ComplaintAn.find(params[:id]).destroy
+    redirect_to educanding_denuncias_path
+  end
+
 end

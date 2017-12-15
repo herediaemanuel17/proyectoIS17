@@ -20,20 +20,22 @@
           <th>
             <button type="button" class="btn btn-">
               <span class="glyphicon glyphicon-thumbs-up"></span>
-              <%= link_to_if VoteQ.where(User_id: current_user.id,Question_id: @pre.id).empty? && @pre.User_id != current_user.id && current_user.puntos > 15 , " positivo "   ,voteqs_positivo_path(:id=> @pre.id)  %>
+              <%= link_to_if VoteQ.where(User_id: current_user.id,Question_id: @pre.id).empty? && @pre.User_id != current_user.id && current_user.puntos > 14 , " positivo "   ,voteqs_positivo_path(:id=> @pre.id)  %>
               <%= VoteQ.where(positivo: true, Question_id: @pre.id).count%>
             </button>
             <button type="button" class="btn btn-succes">
               <span class="glyphicon glyphicon-thumbs-down"></span>
-              <%= link_to_if VoteQ.where(User_id: current_user.id,Question_id: @pre.id).empty? && @pre.User_id != current_user.id && current_user.puntos > 100 ,"negativos " ,voteqs_negativo_path(:id=> @pre.id)  %>
+              <%= link_to_if VoteQ.where(User_id: current_user.id,Question_id: @pre.id).empty? && @pre.User_id != current_user.id && current_user.puntos > 99 ,"negativos " ,voteqs_negativo_path(:id=> @pre.id)  %>
               <%= VoteQ.where(positivo: false, Question_id:@pre.id).count%>
             </button>
           </th>
           <th> <% if @pre.User_id == current_user.id %>
-  					<%= link_to "eliminar",preguntar_eliminar_path(:id=>@pre.id) , class: 'btn btn-info btn-sm' %>
+  					<%= link_to"eliminar",preguntar_eliminar_path(:id=>@pre.id) , class: 'btn btn-info btn-sm' %>
   				<% end %>
         </th>
-        <th><%= link_to "denunciar", denunciap_nuevo_path(:pid=> @pre.id) %></th>
+        <th><button type="button" class="btn btn-sm">
+          <%= link_to_if current_user.puntos > 149 && current_user.id != @pre.User_id, "denunciar", denunciap_nuevo_path(:pid=> @pre.id)%>
+        </button></th>
         <th>
           <!-- <%= link_to "CrearEtiquete",preguntar_eliminar_path(:id=>@pre.id) , class: 'btn btn-info btn-sm' %>-->
       </th>
@@ -72,19 +74,16 @@
             <% end %>
           <td><%= link_to "Comentarios", comentarior_index_path(:id=> a.id) %></td>
           <td><%=a.User.name%></td>
-
-
-
           <div class="col">
             <th>
               <button type="button" class="btn btn-">
                 <span class="glyphicon glyphicon-thumbs-up"></span>
-                <%= link_to_if VoteAn.where(User_id: current_user.id, Answer_id:a.id).empty? && a.User_id != current_user.id && current_user.puntos >15 ," positivo "   ,voteas_positivo_path(:rid=> a.id, :id=> @pre.id)  %>
+                <%= link_to_if VoteAn.where(User_id: current_user.id, Answer_id:a.id).empty? && a.User_id != current_user.id && current_user.puntos >14 ," positivo "   ,voteas_positivo_path(:rid=> a.id, :id=> @pre.id)  %>
                 <%= VoteAn.where(positivo: true, Answer_id: a.id).count%>
               </button>
               <button type="button" class="btn btn-succes">
                 <span class="glyphicon glyphicon-thumbs-down"></span>
-                <%= link_to_if VoteAn.where(User_id: current_user.id, Answer_id:a.id).empty? && a.User_id != current_user.id && current_user.puntos > 100 ,"negativos " ,voteas_negativo_path(:rid=> a.id, :id=> @pre.id)  %>
+                <%= link_to_if VoteAn.where(User_id: current_user.id, Answer_id:a.id).empty? && a.User_id != current_user.id && current_user.puntos > 99 ,"negativos " ,voteas_negativo_path(:rid=> a.id, :id=> @pre.id)  %>
                 <%= VoteAn.where(positivo: false, Answer_id: a.id).count%>
               </button>
             </th>
@@ -93,7 +92,9 @@
           <td><% if a.User_id == current_user.id %>
   					<%= link_to "eliminar",responder_eliminar_path(:id=>a.id, :pid=> @pre.id) , class: 'btn btn-info btn-sm' %>
   				<% end %> </td>
-          <td><%= link_to "denunciar", denunciar_nuevo_path(:pid=> @pre.id, :rid=>a.id) %></td>
+          <td><button type="button" class="btn btn-sm">
+            <%= link_to_if current_user.puntos >149 && current_user.id != a.User_id, "denunciar", denunciar_nuevo_path(:pid=> @pre.id, :rid=>a.id)%></td>
+          </button></td>
         </tr>
   		<% end %>
   </table>
