@@ -13,7 +13,10 @@
         <td><% if a.User_id == current_user.id %>
           <%= link_to "eliminar",comentarior_eliminar_path(:cid=>a.id, :id=> @respuesta.id) , class: 'btn btn-info btn-sm' %>
         <% end %> </td>
-          <td> <%= link_to "denunciar", denunciacr_nuevo_path(:cid=>a.id, :rid=>@respuesta.id), class: 'btn btn-info btn-sm' %>
+          <td> <button type="button" class="btn btn-sm">
+            <%= link_to_if current_user.puntos > 149 && current_user.id != a.User_id, "denunciar", denunciacr_nuevo_path(:cid=>a.id, :rid=>@respuesta.id)%>
+          </button>
+          </td>
       </tr>
     <% end %>
   </table>
