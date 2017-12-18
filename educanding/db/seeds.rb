@@ -11,9 +11,10 @@ Univercity.create(nombre: 'Facultad De Informatica', direccion: '50 y 120', pais
 
 puts "permisos"
 Permit.create(acciones: 'Crear pregunta o respuesta', puntos:'1')
-Permit.create(acciones:'Votar positivo en pregunta, respuesta o comentario', puntos:'15')
+Permit.create(acciones:'Votar positivo en pregunta o respuesta', puntos:'15')
 Permit.create(acciones:'Comentar en cualquier lado' , puntos:'20')
 Permit.create(acciones:'Votar negativo' , puntos:'100')
+Permit.create(acciones:'Denunciar', puntos:'150')
 Permit.create(acciones:'Administrar etiquetas' , puntos:'300')
 Permit.create(acciones:'Administrar facultades', puntos:'500')
 Permit.create(acciones:'Modificar contenidos', puntos:'1000')

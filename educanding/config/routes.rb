@@ -51,6 +51,9 @@ Rails.application.routes.draw do
   post 'univercities/crear'=>'univercities#crear'
   get 'univercities/index'=>'univercities#index'
   get 'univercities/new'=>'univercities#new'
+  get 'permisos/index'=>'permisos#index'
+  get 'permisos/nuevo'=>'permisos#nuevo'
+  post 'permisos/editar'=>'permisos#editar'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

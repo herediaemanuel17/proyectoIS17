@@ -24,7 +24,7 @@
             <td><%= q.descripcion %></td>
             <td><% u=User.find(d.User_id)%><%= u.name%></td>
             <td><button type="button" class: "btn btn-sm"><%= link_to_if d.User_id != current_user.id, "ignorar", denunciap_ignorar_path(:id=>d.id)%></button></td>
-            <td><button type="button" class: "btn btn-sm"><%= link_to_if d.User_id != current_user.id && current_user.puntos > 50000, "eliminar", denunciap_eliminar_path(:id=>d.id)%></button></td>
+            <td><button type="button" class: "btn btn-sm"><%= link_to_if d.User_id != current_user.id, "eliminar", denunciap_eliminar_path(:id=>d.id)%></button></td>
           <% end %>
         </tr>
         </table>
@@ -47,7 +47,7 @@
               <td><% r=Answer.find(d.Answer_id) %><%= r.descripcion %> </td>
               <td><% u=User.find(d.User_id)%><%= u.name%></td>
               <td><button type="button" class: "btn btn-sm"><%= link_to_if d.User_id != current_user.id, "ignorar", denunciar_ignorar_path(:id=>d.id)%></button></td>
-              <td><button type="button" class: "btn btn-sm"><%= link_to_if d.User_id != current_user.id && current_user.puntos > 50000, "eliminar", denunciar_eliminar_path(:id=>d.id, :rid=>d.Answer_id)%></button></td>
+              <td><button type="button" class: "btn btn-sm"><%= link_to_if d.User_id != current_user.id, "eliminar", denunciar_eliminar_path(:id=>d.id, :rid=>d.Answer_id)%></button></td>
             <% end %>
           </table>
         </div>
@@ -69,7 +69,7 @@
               <td><% r=RemarkQ.find(d.remarkq_id) %><%= r.descripcion %> </td>
               <td><% u=User.find(d.user_id)%><%= u.name%></td>
               <td><button type="button" class: "btn btn-sm"><%= link_to_if d.user_id != current_user.id, "ignorar", denunciacp_ignorar_path(:id=>d.id)%></button></td>
-              <td><button type="button" class: "btn btn-sm"><%= link_to_if d.user_id != current_user.id && current_user.puntos > 50000, "eliminar", denunciacp_eliminar_path(:id=>d.id)%></button></td>
+              <td><button type="button" class: "btn btn-sm"><%= link_to_if d.user_id != current_user.id, "eliminar", denunciacp_eliminar_path(:id=>d.id)%></button></td>
             <% end %>
             <% @denuncr.each do |d| %>
             <tr>

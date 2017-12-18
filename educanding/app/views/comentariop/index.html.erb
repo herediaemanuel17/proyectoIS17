@@ -15,12 +15,12 @@
           <%= link_to "eliminar",comentariop_eliminar_path(:cid=>a.id, :id=> @pregunta.id) , class: 'btn btn-info btn-sm' %>
         <% end %> </td>
         <td><button type="button" class="btn btn-">
-           <%= link_to_if current_user.puntos > 149 && current_user.id != a.User_id, "denunciar", denunciacp_nuevo_path(:cid=>a.id, :pid=>@pregunta.id)%>
+           <%= link_to_if current_user.puntos >= Permit.find(5).puntos && current_user.id != a.User_id, "denunciar", denunciacp_nuevo_path(:cid=>a.id, :pid=>@pregunta.id)%>
         </button></td>
       </tr>
     <% end %>
   </table>
-  <% if current_user.puntos > 20 %>
+  <% if current_user.puntos >= Permit.find(3).puntos %>
     <%= form_for :Comep , url:comentariop_crear_path do |r| %>
       <div class="row">
         <div class="col-md-6">

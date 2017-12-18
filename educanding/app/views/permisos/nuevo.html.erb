@@ -1,0 +1,25 @@
+<div class:"container">
+  <h1> Aqui puede asignar la nueva cantidad de puntos requerida para realizar la accion </h1>
+  <table class:"table">
+    <tr>
+      <th> Acciones que puede realizar el usuario </th>
+      <th> Puntos minimos requeridos actuales </th>
+      <th> Nueva cantidad de  </th>
+    </tr>
+      <tr>
+        <td><%= @permisos.acciones %></td>
+        <td><%= @permisos.puntos %></td>
+        <td><%= form_for :permi,url:permisos_editar_path  do |p| %>
+          <div class="row">
+            <div class="col-md-6">
+              <%= p.label :puntos %>
+                <%= hidden_field_tag :id, @permisos.id %>
+                <%= p.text_field :puntos, class: 'form-control', label: 'Puntos', placeholder: 'ingrese los puntos', required:true %>
+              </div>
+          </div>
+          <%= p.submit "Cambiar puntos", class: 'btn btn-primary' %><% end %>
+        </td>
+      </tr>
+  </table>
+  <%= link_to "volver", permisos_index_path %>
+</div>

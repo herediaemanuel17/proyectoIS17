@@ -10,8 +10,8 @@ class DenunciacpController < ApplicationController
     denu=params[:denuncia] [:motivo]
     uid=current_user.id
     cid=params[:cid]
-    @denu=ComplaintRq.new(motivo: denu, user_id: uid, remarkq_id: cid)
-    if @denu.save
+    denun=ComplaintRq.new(motivo: denu, user_id: uid, remarkq_id: cid)
+    if denun.save
       redirect_to comentariop_index_path(:id=> params[:pid])
     end
   end
